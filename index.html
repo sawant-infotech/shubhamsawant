@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Shubham Sawant</title>
+
+
+</head>
+
+<body onload="getIp('visit-ip')">
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+    <!-- scripts -->
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- client data -->
+    <div class="visually-hidden">
+        <form name="visited-ip-form" method="POST">
+            <input type="text" name="IP" id="visit-ip-p1"><br>
+            <input type="text" name="IP Version" id="visit-ip-p2"><br>
+            <input type="text" name="City" id="visit-ip-p3"><br>
+            <input type="text" name="Region Code" id="visit-ip-p4"><br>
+            <input type="text" name="Region Name" id="visit-ip-p5"><br>
+            <input type="text" name="Country Code" id="visit-ip-p6"><br>
+            <input type="text" name="Country Name" id="visit-ip-p7"><br>
+            <input type="text" name="Country Capital" id="visit-ip-p8"><br>
+            <input type="text" name="Postal Code" id="visit-ip-p9"><br>
+            <input type="text" name="Latitude" id="visit-ip-p10"><br>
+            <input type="text" name="Longitude" id="visit-ip-p11"><br>
+            <input type="text" name="Time Zone" id="visit-ip-p12"><br>
+            <input type="text" name="Country Calling Code" id="visit-ip-p13"><br>
+            <input type="text" name="Autonomous System Name" id="visit-ip-p14"><br>
+            <input type="text" name="Organization" id="visit-ip-p15"><br>
+            <input type="text" name="Visit Date Time" id="visit-ip-p16">
+            <input type="text" name="Page" id="visit-ip-p17">
+        </form>
+        <script>
+            const scriptURL3 = 'https://script.google.com/macros/s/AKfycbz8Naryd7JIwMPLEk_19h3cxn_bN5kjMBHhhqAD_wpoNGkp1MYy4s6oUqKAolDoPEfa/exec'
+            const form3 = document.forms['visited-ip-form']
+
+            var dateTime_var = new Date();
+            var ip_var = null;
+            $.ajax(/*'http://ip-api.com/json'*/ 'https://ipapi.co/json/')
+                .then(
+                    function success(response) {
+                        document.getElementById('visit-ip-p1').value = response.ip;
+                        ip_var = response.ip;
+                        document.getElementById('visit-ip-p2').value = response.version;
+                        document.getElementById('visit-ip-p3').value = response.city;
+                        document.getElementById('visit-ip-p4').value = response.region_code;
+                        document.getElementById('visit-ip-p5').value = response.region;
+                        document.getElementById('visit-ip-p6').value = response.country_code;
+
+                        document.getElementById('visit-ip-p7').value = response.country_name;
+
+                        document.getElementById('visit-ip-p8').value = response.country_capital;
+                        document.getElementById('visit-ip-p9').value = response.postal;
+                        document.getElementById('visit-ip-p10').value = response.latitude;
+                        document.getElementById('visit-ip-p11').value = response.longitude;
+                        document.getElementById('visit-ip-p12').value = response.timezone;
+                        document.getElementById('visit-ip-p13').value = response.country_calling_code;
+                        document.getElementById('visit-ip-p14').value = response.asn;
+                        document.getElementById('visit-ip-p15').value = response.org;
+                        document.getElementById('visit-ip-p16').value = dateTime_var;
+                        document.getElementById('visit-ip-p17').value = 'Shubham Sawant';
+                        fetch(scriptURL3, { method: 'POST', body: new FormData(form3) })
+                            .then(response => console.log('Sucess')
+                            )
+                            .catch(error => console.error('Error!', error.message))
+                    },
+                    function fail(data, status) {
+                        document.getElementById('visit-ip-p1').value = response.status;
+                        console.log('Request failed.  Returned status of',
+                            status);
+                        fetch(scriptURL3, { method: 'POST', body: new FormData(form3) })
+                            .then(response => console.log('Sucess')
+                            )
+                            .catch(error => console.error('Error!', error.message))
+                    }
+                );
+        </script>
+    </div>
+
+    <!-- PRELOADER
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div> -->
+
+
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Shubham Sawant</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Shubham</span></h1>
+                <h3 class="home__subtitle">
+                    and I'm <span class="auto-input"></span>
+                </h3>
+
+                <!--=================== Animated text ===============-->
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                <script>
+                    var typed = new Typed(".auto-input", {
+                        strings: [
+                            "a Web Developer",
+                            "an Desktop Application Developer",
+                            "a Student",
+                            "an UI Designer",
+                        ],
+                        typeSpeed: 100,
+                        backSpeed: 100,
+                        loop: true,
+                    });
+                </script>
+
+                <a href="#contact" class="button"><i class="bx bx-send"></i> Contact</a>
+            </div>
+
+            <div class="home__social">
+                <a href="" class="home__social-icon"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://instagram.com/shubhams1401/" class="home__social-icon"><i
+                        class='bx bxl-instagram'></i></a>
+                <a href="mailto:shubhams1401@gmail.com" class="home__social-icon"><i class='bx bxl-gmail'></i></a>
+                <a href="https://stackoverflow.com/users/22001767/shubham-sawant" class="home__social-icon"><i
+                        class='bx bxl-stack-overflow'></i></a>
+                <a href="https://youtube.com/@sawantinfotech" class="home__social-icon"><i
+                        class='bx bxl-youtube'></i></a>
+                <a href="tel:8806288365" class="home__social-icon"><i class='bx bxs-phone'></i></a>
+
+
+            </div>
+
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <mask id="mask0" mask-type="alpha">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                    </mask>
+                    <g mask="url(#mask0)">
+                        <path
+                            d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                        <image class="home__blob-img" x="8" y="0" href="assets/img/perfil.png" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/about.jpg" alt="">
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">I'am Shubham</h2>
+                    <p class="about__text">
+                        Welcome to my website! I am <i>Shubham Sambhaji Sawant</i>, a software professional with a
+                        passion for
+                        learning and creating innovative solutions. With over two years of experience in software
+                        services and website design, I have developed a diverse skill set in programming languages like
+                        C#, C, JS, Python and Java. I have also worked with databases such as MySQL and MS Access. My
+                        projects
+                        include designing websites, creating desktop applications, and working on real-life software
+                        solutions. I am dedicated to continuous learning and enjoy staying updated with the latest
+                        technologies. Explore my portfolio and projects to get a glimpse of my work. Let's connect and
+                        discuss how I can contribute to your organization's growth!</p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">Profesional Skills</h2>
+                    <p class="skills__text">Here are the skills that I have honed over the years, equipping me with
+                        expertise in software services, website design, and programming:</p>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxl-html5 skills__icon'></i>
+                            <span class="skills__name">HTML5</span>
+                        </div>
+                        <div class="skills__bar skills__html">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxl-css3 skills__icon'></i>
+                            <span class="skills__name">CSS3</span>
+                        </div>
+                        <div class="skills__bar skills__css">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxl-javascript skills__icon'></i>
+                            <span class="skills__name">JAVASCRIPT</span>
+                        </div>
+                        <div class="skills__bar skills__js">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">65%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxl-java skills__icon'></i>
+                            <span class="skills__name">Java</span>
+                        </div>
+                        <div class="skills__bar skills__ux">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">70%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxl-python skills__icon'></i>
+                            <span class="skills__name">Python</span>
+                        </div>
+                        <div class="skills__bar skills__ux">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">75%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class='bx bxs-paint skills__icon'></i>
+                            <span class="skills__name">UX/UI</span>
+                        </div>
+                        <div class="skills__bar skills__ux">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img__container">
+                    <img src="assets/img/work3.jpg" alt="" class="skills__img">
+                </div>
+            </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Work</h2>
+
+            <div class="work__container bd-grid">
+                <a href="" class="work__img">
+                    <img src="assets/img/work1.jpg" alt="">
+                    <div class="work__img__title">Software Development</div>
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work2.jpg" alt="">
+                    <div class="work__img__title">Data Entry</div>
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work3.jpg" alt="">
+                    <div class="work__img__title">Software Support services</div>
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work4.jpg" alt="">
+                    <div class="work__img__title">Project Development</div>
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work5.jpg" alt="">
+                    <div class="work__img__title">Web Designing & <br> Development</div>
+                </a>
+                <a href="" class="work__img">
+                    <img src="assets/img/work6.jpg" alt="">
+                    <div class="work__img__title">Education</div>
+                </a>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="d-flex">
+                <div class="contact__container bd-grid mt-2">
+                    <div>
+                        <div class="contact__information">
+                            <div>
+                                <h3 class="contact__title contact__icon__center"><i
+                                        class="bx bxl-gmail contact__icon"></i>Email</h3>
+                                <span class="contact__subtitle"> shubhams1401@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact__information">
+                            <div>
+                                <h3 class="contact__title contact__icon__center"><i
+                                        class="bx bxl-whatsapp contact__icon"></i>Whatsapp</h3>
+                                <span class="contact__subtitle">+91 88062 88365</span>
+                            </div>
+                        </div>
+                        <div class="contact__information">
+                            <div>
+                                <h3 class="contact__title contact__icon__center"><i
+                                        class="bx bxl-instagram contact__icon"></i>Instagram</h3>
+                                <span class="contact__subtitle">@shubhams1401</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="display: none;">
+                <div class="contact__container bd-grid mt-2">
+                    <div>
+                        <form action="" id="id-contact-form">
+                            <div class="row d-flex" style="display: none;">
+                                <div>
+                                    <div>Date Time</div>
+                                    <input type="text" id="dateTime_" class="contact__input" name="Visit Date Time">
+                                </div>
+                                <div>
+                                    <div>IP</div>
+                                    <input type="email" id="ip_" class="contact__input" name="IP">
+                                </div>
+                            </div>
+                            <div class="row d-flex">
+                                <div>
+                                    <div>Name</div>
+                                    <input type="text" id="name_" class="contact__input" name="Name" required>
+                                </div>
+                                <div>
+                                    <div>Email</div>
+                                    <input type="email" id="email_" class="contact__input" name="Email" required>
+                                </div>
+                            </div>
+                            <div class="row d-flex">
+                                <div style="width: 100%;">
+                                    <div>Message</div>
+                                    <textarea type="text" id="msg_" class="contact__input" name="Message"
+                                        style="width: 100%;" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row d-flex flex-end">
+                                <div>
+                                    <input type="submit" name="" id="" class="button border-0">
+                                    <input type="reset" class="button border-0">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title ">Shubham Sawant</p>
+        <div class="footer__social">
+            <a href="" class="footer__icon"><i class='bx bxl-whatsapp'></i></a>
+            <a href="https://instagram.com/shubhams1401/" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="mailto:shubhams1401@gmail.com" class="footer__icon"><i class='bx bxl-gmail'></i></a>
+            <a href="https://stackoverflow.com/users/22001767/shubham-sawant" class="footer__icon"><i
+                    class='bx bxl-stack-overflow'></i></a>
+            <a href="https://youtube.com/@sawantinfotech" class="footer__icon"><i class='bx bxl-youtube'></i></a>
+            <a href="tel:8806288365" class="footer__icon"><i class='bx bxs-phone'></i></a>
+
+        </div>
+        <p class="footer__copy">
+            <a href="https://sawant-infotech.github.io/" target="_blank">
+                &#169; Sawant Infotech. All rigths reserved
+            </a>
+        </p>
+    </footer>
+
+    <!--===== FOOTER =====-->
+    <section class="go__to__top">
+        <button class="go__to__top__button" onclick="goToTop()"><i class='bx bx-chevron-up'></i></button>
+    </section>
+    <script>
+        function goToTop() {
+            window.scrollTo(0, 0);
+        }
+
+    </script>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+
+        function getIp(idName) {
+            // $.getJSON("https://api.ipify.org?format=json", function (data) { $('#' + idName).val(data.ip); })
+            $('#' + idName).val($('#visit-ip-p1').val());
+        }
+
+
+        // stop preloading
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                document.querySelector("body").classList.add("loaded");
+            }, 3000)
+        });
+
+        // disable right click
+        document.addEventListener("DOMContentLoaded", function () {
+            var bodyElement = document.querySelector("body");
+
+            bodyElement.addEventListener("contextmenu", function (event) {
+                event.preventDefault();
+            });
+        });
+
+        // disable copy
+        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("selectstart", function (event) {
+                event.preventDefault();
+            });
+
+            document.addEventListener("copy", function (event) {
+                event.preventDefault();
+            });
+        });
+
+        document.onkeydown = function (e) {
+            if ((e.ctrlKey && e.shiftKey && e.keyCode === 73) ||  // Ctrl+Shift+I
+                (e.ctrlKey && e.keyCode === 67) ||  // Ctrl+C
+                (e.ctrlKey && e.keyCode === 86) ||  // Ctrl+V
+                (e.ctrlKey && e.keyCode === 85) ||  // Ctrl+U
+                (e.ctrlKey && e.keyCode === 117)) { // Ctrl+F6
+                alert('Not allowed');
+                return false;
+            } else {
+                return true;
+            }
+        };
+
+
+
+        document.getElementById("dateTime_").value = dateTime_var;
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyuZQdGXeu-MhjTSXkvCLHGQyeR--PUi04DKgHuoEgXdDWuVG8aOMRh6BSYS59-jCn4EQ/exec'
+        const form = document.forms['id-contact-form']
+        form.addEventListener('submit', e => {
+            document.getElementById("ip_").value = ip_var;
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => (alert("Submit Successfully."), form.reset())
+                )
+                .catch(error => alert('Error!\n' + error.message))
+
+        })
+    </script>
+</body>
+
+</html>
